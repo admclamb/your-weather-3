@@ -1,5 +1,4 @@
-import { useState } from "react";
-import PageRoutes from "./pages/pageRoutes";
+import PageRoutes from "./pages/PageRoutes";
 
 const App = () => {
   return <PageRoutes />;
