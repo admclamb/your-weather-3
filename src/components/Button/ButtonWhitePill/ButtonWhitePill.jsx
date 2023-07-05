@@ -19,7 +19,7 @@ const ButtonWhitePill = ({
       padding={padding}
       className={`${
         className && className + " "
-      }drop-shadow-md rounded-full border bg-slate-50 hover:bg-slate-100 focus:outline active:translate-y-0.5 active:drop-shadow outline-2 outline-offset-2 outline-red-600 duration-200 ease-out${
+      }drop-shadow-md rounded-full border bg-slate-50 hover:bg-slate-100 focus:outline active:translate-y-0.5 active:drop-shadow outline-2 outline-offset-2 outline-orange-600 duration-200 ease-out${
         className && " " + className
       }`}
     >
