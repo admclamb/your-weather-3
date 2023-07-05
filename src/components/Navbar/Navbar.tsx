@@ -1,9 +1,8 @@
 import React, { useState } from "react";
 import Container from "../Container/Container";
-import LogoIcon from "../Logo/LogoIcon/LogoIcon";
 import Logo from "../Logo/Logo";
 import NavbarBurger from "./NavbarBuger/NavbarBurger";
-
+import ButtonClear from "../Button/ButtonClear/ButtonClear";
 type Props = {};
 
 const Navbar = (props: Props) => {
@@ -13,7 +12,16 @@ const Navbar = (props: Props) => {
       <Container className="flex justify-between items-center">
         <Logo />
         <NavbarBurger setIsOpen={setIsNavOpen} />
-        <div></div>
+        <div
+          className={`${
+            isNavOpen ? "fixed right-0" : "hidden left-full"
+          } top-0 bottom-0`}
+        >
+          <div>
+            <Logo />
+            <ButtonClear>Close</ButtonClear>
+          </div>
+        </div>
       </Container>
     </nav>
   );
