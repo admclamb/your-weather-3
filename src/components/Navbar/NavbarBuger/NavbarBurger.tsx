@@ -1,7 +1,7 @@
 import React from "react";
 
 type Props = {
-  setIsOpen: React.Dispatch<React.SetStateAction<Boolean>>;
+  setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
 const NavbarBurger = ({ setIsOpen }: Props) => {
