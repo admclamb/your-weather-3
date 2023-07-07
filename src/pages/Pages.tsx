@@ -1,9 +1,13 @@
+import { Route, Routes } from "react-router-dom";
 import Layout from "../layout/Layout";
+import Home from "./Home/Home";
 
 const Pages = () => {
   return (
     <Layout>
-      <div>pages</div>
+      <Routes>
+        <Route path="/" element={<Home />} />
+      </Routes>
     </Layout>
   );
 };
