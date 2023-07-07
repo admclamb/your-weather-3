@@ -5,9 +5,16 @@ type Props = {
   setInput: React.Dispatch<React.SetStateAction<string>>;
   className?: string;
   placeholder?: string;
+  padding?: string;
 };
 
-const FormInput = ({ input, setInput, className, placeholder }: Props) => {
+const FormInput = ({
+  input,
+  setInput,
+  className,
+  placeholder,
+  padding = "p-3",
+}: Props) => {
   const changeInput = ({
     target: { value },
   }: React.ChangeEvent<HTMLInputElement>) => {
@@ -17,7 +24,9 @@ const FormInput = ({ input, setInput, className, placeholder }: Props) => {
     <input
       value={input}
       onChange={changeInput}
-      className={`py-1 px-3 rounded${className && " " + className}`}
+      className={`${padding} outline-2 outline-offset-2 outline-orange-600 rounded${
+        className && " " + className
+      }`}
       placeholder={placeholder}
     />
   );
