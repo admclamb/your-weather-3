@@ -1,7 +1,7 @@
-import Layout from "./layout/Layout";
+import Pages from "./pages/Pages";
 
 const App = () => {
-  return <Layout></Layout>;
+  return <Pages />;
 };
 
 export default App;
