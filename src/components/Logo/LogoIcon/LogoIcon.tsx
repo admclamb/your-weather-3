@@ -1,8 +1,4 @@
-import React from "react";
-
-type Props = {};
-
-const LogoIcon = (props: Props) => {
+const LogoIcon = () => {
   return (
     <span className="text-2xl">
       <i className="fa-solid fa-cloud"></i>

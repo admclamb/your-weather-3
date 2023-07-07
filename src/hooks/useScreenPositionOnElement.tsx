@@ -1,6 +1,9 @@
-import { useEffect } from "react";
+import { RefObject, useEffect } from "react";
 
-export const useScreenPositionOnElement = (parentRef, setState) => {
+export const useScreenPositionOnElement = (
+  parentRef: RefObject<HTMLInputElement>,
+  setState: React.Dispatch<React.SetStateAction<boolean>>
+) => {
   useEffect(() => {
     const listenToScroll = () => {
       const winScroll =

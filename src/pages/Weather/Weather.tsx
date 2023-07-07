@@ -1,8 +1,4 @@
-import React from "react";
-
-type Props = {};
-
-const Weather = (props: Props) => {
+const Weather = () => {
   return <div>Weather</div>;
 };
 

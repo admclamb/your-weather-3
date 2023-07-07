@@ -1,6 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { ButtonType } from "../../ts/enums/ButtonType";
 
 type Props = {
   link?: string;

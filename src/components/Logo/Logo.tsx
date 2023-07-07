@@ -1,4 +1,3 @@
-import React from "react";
 import LogoIcon from "./LogoIcon/LogoIcon";
 import { Link } from "react-router-dom";
 

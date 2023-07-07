@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import Container from "../Container/Container";
 import Logo from "../Logo/Logo";
 import NavbarCanvas from "./NavbarCanvas/NavbarCanvas";

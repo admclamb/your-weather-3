@@ -1,6 +1,4 @@
-import React from "react";
 import Logo from "../../Logo/Logo";
-import ButtonClear from "../../Button/ButtonClear/ButtonClear";
 import ButtonClearGray from "../../Button/ButtonClearGray/ButtonClearGray";
 
 type Props = {

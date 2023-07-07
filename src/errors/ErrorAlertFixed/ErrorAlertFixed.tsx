@@ -1,11 +1,12 @@
 import React from "react";
 
-const ErrorAlertFixed = ({
-  error,
-  classes,
-  showClose,
-  setError = () => {},
-}) => {
+type Props = {
+  error?: { message: string } | null;
+  showClose?: boolean;
+  setError: React.Dispatch<React.SetStateAction<{ message: string } | null>>;
+};
+
+const ErrorAlertFixed = ({ error, showClose, setError }: Props) => {
   return (
     error &&
     error.message && (
