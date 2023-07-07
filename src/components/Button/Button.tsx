@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { ButtonType } from "../../ts/enums/ButtonType";
 
 type Props = {
   link?: string;
@@ -10,7 +11,7 @@ type Props = {
   width?: string;
   padding?: string;
   id?: string;
-  type?: string;
+  type?: "button" | "submit" | "reset" | undefined;
 };
 
 const Button = ({

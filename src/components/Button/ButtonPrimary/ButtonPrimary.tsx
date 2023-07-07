@@ -1,6 +1,18 @@
 import React from "react";
 import Button from "../Button";
 
+type Props = {
+  link?: string;
+  onClick: (arg: any) => any;
+  children?: React.ReactNode;
+  className?: string;
+  role?: string;
+  width?: string;
+  padding?: string;
+  id?: string;
+  type?: "button" | "submit" | "reset" | undefined;
+};
+
 const ButtonPrimary = ({
   link = "",
   onClick,
@@ -10,7 +22,7 @@ const ButtonPrimary = ({
   width = "min-w-[4rem]",
   id,
   type,
-}) => {
+}: Props) => {
   return (
     <Button
       link={link}

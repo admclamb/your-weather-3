@@ -1,6 +1,18 @@
 import React from "react";
 import Button from "../Button";
 
+type Props = {
+  link?: string;
+  onClick: (arg: any) => any;
+  children?: React.ReactNode;
+  className?: string;
+  role?: string;
+  width?: string;
+  padding?: string;
+  id?: string;
+  type?: "button" | "submit" | "reset" | undefined;
+};
+
 const ButtonLight = ({
   link = "",
   onClick,
@@ -8,7 +20,7 @@ const ButtonLight = ({
   className = "",
   role = "button",
   width = "min-w-[4rem]",
-}) => {
+}: Props) => {
   return (
     <Button
       link={link}
