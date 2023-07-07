@@ -5,8 +5,7 @@ import NavbarCanvas from "./NavbarCanvas/NavbarCanvas";
 import NavbarBurger from "./NavbarBurger/NavbarBurger";
 
 const Navbar = () => {
-  const [isNavOpen, setIsNavOpen] = useState<boolean>(true);
-  console.log("IS NAV OPEN: ", isNavOpen);
+  const [isNavOpen, setIsNavOpen] = useState<boolean>(false);
   return (
     <nav className="bg-neutral-700 text-white p-3">
       <Container className="flex justify-between items-center">
