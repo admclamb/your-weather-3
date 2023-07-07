@@ -3,7 +3,7 @@ import Button from "../Button";
 
 type Props = {
   link?: string;
-  onClick: (arg: any) => any;
+  onClick?: (arg: any) => any;
   children?: React.ReactNode;
   className?: string;
   role?: string;

@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 type Props = {
   link?: string;
-  onClick: (arg: any) => any;
+  onClick?: (arg: any) => any;
   children?: React.ReactNode;
   className?: string;
   role?: string;
