@@ -7,7 +7,9 @@ type Props = {
 };
 
 const NavbarCanvas = ({ isOpen, setIsOpen }: Props) => {
+  console.log("IS OPEN", isOpen);
   const closeCanvas = () => {
+    console.log("CLOSING");
     setIsOpen(false);
   };
   return (

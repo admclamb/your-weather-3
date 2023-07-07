@@ -21,18 +21,19 @@ const Canvas = ({ isOpen, closeCanvas, children }: Props) => {
       return document.removeEventListener("keydown", escFunction, false);
     };
   }, []);
-  useDisableBodyScroll(isOpen ? JSON.stringify(isOpen) : null);
-
+  useDisableBodyScroll(isOpen);
   return (
-    <>
-      <div className="xl:hidden navbar-canvas-backdrop"></div>
-      <FocusTrap focusTrapOptions={{ initialFocus: "#canvas-header" }}>
-        <div className="fixed navbar-canvas border-l border-neutral-500 bg-neutral-700 w-11/12 sm:w-3/5 md:w-7/12 lg:w-3/12 text-white right-0 top-0 bottom-0 overflow-y-auto duration-200 ease-out">
-          <CanvasHeader closeCanvas={closeCanvas} />
-          {children}
-        </div>
-      </FocusTrap>
-    </>
+    isOpen && (
+      <>
+        <div className="navbar-canvas-backdrop"></div>
+        <FocusTrap focusTrapOptions={{ initialFocus: "#canvas-header" }}>
+          <div className="fixed right-0 top-0 bottom-0 navbar-canvas border-l border-neutral-500 bg-neutral-700 w-11/12 sm:w-3/5 md:w-7/12 lg:w-3/12 text-white overflow-y-auto duration-200 ease-out">
+            <CanvasHeader closeCanvas={closeCanvas} />
+            {children}
+          </div>
+        </FocusTrap>
+      </>
+    )
   );
 };
 

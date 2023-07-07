@@ -1,6 +1,18 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
+type Props = {
+  link?: string;
+  onClick: (arg: any) => any;
+  children?: React.ReactNode;
+  className?: string;
+  role?: string;
+  width?: string;
+  padding?: string;
+  id?: string;
+  type?: string;
+};
+
 const Button = ({
   link = "",
   onClick,
@@ -10,7 +22,7 @@ const Button = ({
   padding = "px-3 py-2",
   id,
   type = "button",
-}) => {
+}: Props) => {
   const parentClass = className;
   if (link) {
     if (onClick !== undefined) {
@@ -35,7 +47,7 @@ const Button = ({
       return (
         <button
           onClick={onClick}
-          className={`${parentClass} ${padding}`}
+          className={`${parentClass} ${padding} outline-2 outline-offset-2 outline-orange-600`}
           role={role}
           id={id}
           type={type}

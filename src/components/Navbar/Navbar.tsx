@@ -1,13 +1,12 @@
 import React, { useState } from "react";
 import Container from "../Container/Container";
 import Logo from "../Logo/Logo";
-import NavbarBurger from "./NavbarBuger/NavbarBurger";
-import ButtonClear from "../Button/ButtonClear/ButtonClear";
 import NavbarCanvas from "./NavbarCanvas/NavbarCanvas";
-type Props = {};
+import NavbarBurger from "./NavbarBurger/NavbarBurger";
 
-const Navbar = (props: Props) => {
-  const [isNavOpen, setIsNavOpen] = useState<boolean>(false);
+const Navbar = () => {
+  const [isNavOpen, setIsNavOpen] = useState<boolean>(true);
+  console.log("IS NAV OPEN: ", isNavOpen);
   return (
     <nav className="bg-neutral-700 text-white p-3">
       <Container className="flex justify-between items-center">

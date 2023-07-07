@@ -13,13 +13,13 @@ type Props = {
   type?: string;
 };
 
-const ButtonClear = ({
+const ButtonClearGray = ({
   link = "",
   onClick,
   children,
   className = "",
   role = "button",
-  width = "min-w-[4rem]",
+  width,
   padding,
   id,
 }: Props) => {
@@ -29,7 +29,7 @@ const ButtonClear = ({
       onClick={onClick}
       role={role}
       padding={padding}
-      className={`bg-inherit hover:bg-gray-100 active:bg-gray-200 ${width} rounded duration-200 ease-out focus:outline outline-2 outline-offset-2 outline-orange-600 ${
+      className={`bg-inherit hover:bg-neutral-600 active:bg-neutral-500 ${width} rounded duration-200 ease-out focus:outline outline-2 outline-offset-2 outline-orange-600 ${
         className && " " + className
       }`}
       id={id}
@@ -39,4 +39,4 @@ const ButtonClear = ({
   );
 };
 
-export default ButtonClear;
+export default ButtonClearGray;

@@ -1,14 +1,18 @@
 import React from "react";
+import ButtonClearGray from "../../Button/ButtonClearGray/ButtonClearGray";
 
 type Props = {
   setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
 const NavbarBurger = ({ setIsOpen }: Props) => {
+  const toggleCanvas = () => {
+    setIsOpen((curr) => !curr);
+  };
   return (
-    <button onClick={() => setIsOpen((curr) => !curr)}>
+    <ButtonClearGray onClick={toggleCanvas}>
       <i className="fa-solid fa-bars"></i>
-    </button>
+    </ButtonClearGray>
   );
 };
 
