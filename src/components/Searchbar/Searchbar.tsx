@@ -15,7 +15,7 @@ const Searchbar = ({ className = "" }: Props) => {
   return (
     <form
       onSubmit={submitSearch}
-      className={`relative${className && " " + className}`}
+      className={`relative text-black${className && " " + className}`}
     >
       <FormInput
         input={input}
