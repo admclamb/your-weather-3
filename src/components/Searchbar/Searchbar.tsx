@@ -3,21 +3,26 @@ import FormInput from "../Form/FormInput/FormInput";
 import ButtonClear from "../Button/ButtonClear/ButtonClear";
 
 type Props = {
-  setSearch: React.Dispatch<React.SetStateAction<string>>;
   className?: string;
 };
 
-const Searchbar = ({ setSearch, className = "" }: Props) => {
+const Searchbar = ({ className = "" }: Props) => {
   const [input, setInput] = useState<string>("");
-  const submitSearch = () => {
-    setSearch(input);
+  const submitSearch = async (event: React.FormEvent) => {
+    event.preventDefault();
+    console.log("SUBMITTTING");
   };
   return (
     <form
       onSubmit={submitSearch}
       className={`relative${className && " " + className}`}
     >
-      <FormInput input={input} setInput={setInput} className="w-full" />
+      <FormInput
+        input={input}
+        setInput={setInput}
+        className="w-full"
+        placeholder="Search..."
+      />
       <ButtonClear
         type="submit"
         className="absolute right-2 top-1/2 -translate-y-1/2"
