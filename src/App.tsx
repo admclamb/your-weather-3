@@ -1,12 +1,7 @@
 import Layout from "./layout/Layout";
-import PageRoutes from "./pages/PageRoutes";
 
 const App = () => {
-  return (
-    <Layout>
-      <PageRoutes />
-    </Layout>
-  );
+  return <Layout></Layout>;
 };
 
 export default App;
