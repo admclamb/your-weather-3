@@ -8,7 +8,7 @@ const NavbarWeather = () => {
     <ul className="flex gap-3 border-b">
       <li>
         <Link
-          to="/"
+          to="/weather"
           className={`p-3 hover:border-orange-500 ${
             pathname === "/weather" ? "border-orange-500" : "border-transparent"
           } border-b-2 block`}
