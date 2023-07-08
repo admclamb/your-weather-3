@@ -5,7 +5,7 @@ import Storage from "../utils/Storage";
 export const locationSlice = createSlice({
   name: "location",
   initialState: {
-    location: {},
+    location: Storage.get("location") ?? {},
   },
   reducers: {
     addLocation: (state, action) => {

@@ -1,15 +1,17 @@
 import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import Container from "../../components/Container/Container";
 import OpenWeather from "../../api/OpenWeather";
-import { ErrorType } from "../../ts/types/Error";
 import { Location } from "../../ts/types/Location";
+import { useDispatch } from "react-redux";
+import { addLocation } from "../../slices/locationSlice";
+import Container from "../../components/Container/Container";
 const Search = () => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [results, setResults] = useState<Location[]>([]);
   const [error, setError] = useState<{ message: string } | null>(null);
   const { state } = useLocation();
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   if (!state.search) {
     navigate("/", {
       state: { error: { message: "No search results have been provided" } },
@@ -25,7 +27,7 @@ const Search = () => {
         if (response.data) {
           setResults(response.data);
         }
-      } catch (err: ErrorType) {
+      } catch (err: any) {
         setError(err);
       } finally {
         setIsLoading(false);
@@ -33,24 +35,58 @@ const Search = () => {
     })();
   }, [state.search]);
 
-  const selectLocation = () => {};
+  const selectLocation = (event: React.MouseEvent<HTMLButtonElement>) => {
+    const target = event.target as HTMLButtonElement;
+    const index = parseInt(target.id);
+    dispatch(addLocation(results[index]));
+    navigate("/weather");
+  };
+  console.log(results);
   return (
-    <Container className="mx-auto py-3 flex flex-col gap-3">
-      <p>
-        Search results for <b>"{state.search}"</b>
-      </p>
+    <Container className="mx-auto flex flex-col gap-0">
+      <div className="p-3">
+        <p>
+          Showing <b>{results.length && results.length}</b> locations for{" "}
+          <b>"{state.search}"</b>
+        </p>
+        {!results.length && (
+          <p className="text-sm mt-1 text-neutral-600">
+            To better refine your search results, use commas inbetween city and
+            state, and fully spell out states.
+          </p>
+        )}
+      </div>
+
       <ul className="border-t">
-        {results.map((result) => {
-          return (
-            <li key={result.name + result.state}>
-              <button className="p-3 border-b w-full text-left hover:bg-neutral-100 duration-200 ease-out">
-                {`${result.name},${result.state && ` ${result.state},`} ${
-                  result.country
-                }`}
-              </button>
-            </li>
-          );
-        })}
+        {isLoading ? (
+          <li className="p-3 border-b w-full text-left">
+            <p className="font-semibold">Loading...</p>
+          </li>
+        ) : error ? (
+          <li className="p-3 border-b w-full text-left">
+            <p className="font-semibold">Error finding location.</p>
+          </li>
+        ) : results.length ? (
+          results.map((result, index) => {
+            return (
+              <li key={result.name + result.state}>
+                <button
+                  className="p-3 border-b w-full text-left hover:bg-neutral-100 duration-200 ease-out"
+                  data-index={index}
+                  onClick={selectLocation}
+                >
+                  {`${result.name},${result.state && ` ${result.state},`} ${
+                    result.country
+                  }`}
+                </button>
+              </li>
+            );
+          })
+        ) : (
+          <li className="p-3 border-b w-full text-left">
+            <p className="font-semibold">No locations found.</p>
+          </li>
+        )}
       </ul>
     </Container>
   );
