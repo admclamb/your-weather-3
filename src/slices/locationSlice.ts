@@ -7,7 +7,7 @@ interface LocationState {
 }
 
 const initialState: LocationState = {
-  location: Storage.get("location") ?? {},
+  location: Storage.local.get<Location>("location") ?? {},
 };
 
 export const locationSlice = createSlice({
@@ -15,11 +15,11 @@ export const locationSlice = createSlice({
   initialState,
   reducers: {
     addLocation: (state, action) => {
-      Storage.set("location", action.payload);
+      Storage.local.set("location", action.payload);
       state.location = action.payload;
     },
     removeLocation: (state) => {
-      Storage.remove("location");
+      Storage.local.remove("location");
       state.location = {};
     },
   },

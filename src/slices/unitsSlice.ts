@@ -7,7 +7,7 @@ interface UnitsState {
 }
 
 const initialState: UnitsState = {
-  units: Storage.get("units") ?? "imperial",
+  units: Storage.local.get<string>("units") ?? "imperial",
 };
 
 export const unitsSlice = createSlice({
@@ -15,11 +15,11 @@ export const unitsSlice = createSlice({
   initialState,
   reducers: {
     addUnits: (state, action) => {
-      Storage.set("units", action.payload);
+      Storage.local.set("units", action.payload);
       state.units = action.payload;
     },
     removeUnits: (state) => {
-      Storage.remove("units");
+      Storage.local.remove("units");
       state.units = "";
     },
   },

@@ -8,7 +8,7 @@ const Home = () => {
   const [recentSearches, setRecentSearches] = useState<Location[]>([]);
 
   useEffect(() => {
-    const foundSearches = Storage.get("recent-locations");
+    const foundSearches = Storage.local.get<Location[]>("recent-locations");
     if (foundSearches?.length) {
       setRecentSearches(foundSearches);
     }

@@ -73,7 +73,7 @@ const Search = () => {
         ) : results.length ? (
           results.map((result, index) => {
             return (
-              <li key={result.name + result.state}>
+              <li key={index}>
                 <button
                   className="p-3 border-b w-full text-left hover:bg-neutral-100 duration-200 ease-out"
                   data-index={index}
