@@ -1,4 +1,4 @@
-const WeatherToday = (props: Props) => {
+const WeatherToday = () => {
   return <div>WeatherToday</div>;
 };
 
