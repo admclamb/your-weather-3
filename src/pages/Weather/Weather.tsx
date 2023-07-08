@@ -1,11 +1,12 @@
-import { useSelector } from "react-redux";
 import Container from "../../components/Container/Container";
 import NavbarWeather from "../../components/Navbar/NavbarWeather/NavbarWeather";
 import { Outlet } from "react-router-dom";
+import { useAppSelector } from "../../hooks/hooks";
 
 const Weather = () => {
-  const { weather } = useSelector((state) => state.weather);
-  const { location } = useSelector((state) => state.location);
+  const { weather } = useAppSelector((state) => state.weather);
+  const { location } = useAppSelector((state) => state.location);
+  console.log(weather, location);
   return (
     <>
       <Container className="mx-auto">

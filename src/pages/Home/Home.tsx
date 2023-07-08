@@ -14,6 +14,8 @@ const Home = () => {
     }
   }, []);
 
+  console.log(recentSearches);
+
   return (
     <>
       <section className="h-[40vh] bg-neutral-500 py-12 text-white">

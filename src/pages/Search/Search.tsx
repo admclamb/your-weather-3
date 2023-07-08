@@ -2,16 +2,18 @@ import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import OpenWeather from "../../api/OpenWeather";
 import { Location } from "../../ts/types/Location";
-import { useDispatch } from "react-redux";
 import { addLocation } from "../../slices/locationSlice";
 import Container from "../../components/Container/Container";
+import ErroHandler from "../../errors/ErrorHandler";
+import ErrorAlertFixed from "../../errors/ErrorAlertFixed/ErrorAlertFixed";
+import { useAppDispatch } from "../../hooks/hooks";
 const Search = () => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [results, setResults] = useState<Location[]>([]);
   const [error, setError] = useState<{ message: string } | null>(null);
   const { state } = useLocation();
   const navigate = useNavigate();
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   if (!state.search) {
     navigate("/", {
       state: { error: { message: "No search results have been provided" } },
@@ -28,7 +30,8 @@ const Search = () => {
           setResults(response.data);
         }
       } catch (err: any) {
-        setError(err);
+        console.error(err);
+        setError(ErroHandler.handleApiResponse(err));
       } finally {
         setIsLoading(false);
       }
@@ -44,6 +47,7 @@ const Search = () => {
   console.log(results);
   return (
     <Container className="mx-auto flex flex-col gap-0">
+      <ErrorAlertFixed error={error} setError={setError} />
       <div className="p-3">
         <p>
           Showing <b>{results.length && results.length}</b> locations for{" "}
