@@ -1,12 +1,18 @@
 import { createSlice } from "@reduxjs/toolkit";
-
 import Storage from "../utils/Storage";
+import { Location } from "../ts/types/Location";
+
+interface LocationState {
+  location: Location;
+}
+
+const initialState: LocationState = {
+  location: Storage.get("location") ?? {},
+};
 
 export const locationSlice = createSlice({
   name: "location",
-  initialState: {
-    location: Storage.get("location") ?? {},
-  },
+  initialState,
   reducers: {
     addLocation: (state, action) => {
       Storage.set("location", action.payload);

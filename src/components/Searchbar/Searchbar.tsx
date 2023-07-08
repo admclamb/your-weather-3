@@ -13,7 +13,7 @@ const Searchbar = ({ className = "" }: Props) => {
 
   const submitSearch = async (event: React.FormEvent) => {
     event.preventDefault();
-    console.log("SUBMITTTING");
+    setInput("");
     navigate("search-locations", { state: { search: input } });
   };
   return (

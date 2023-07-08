@@ -6,7 +6,7 @@ import { useAppSelector } from "../../hooks/hooks";
 const Weather = () => {
   const { weather } = useAppSelector((state) => state.weather);
   const { location } = useAppSelector((state) => state.location);
-  console.log(weather, location);
+  console.log("WEATHER: ", weather, location);
   return (
     <>
       <Container className="mx-auto">
