@@ -18,7 +18,7 @@ const NavbarWeather = () => {
       </li>
       <li>
         <Link
-          to="/"
+          to="hourly"
           className={`p-3 hover:border-orange-500 ${
             pathname === "/weather/hourly"
               ? "border-orange-500"
@@ -30,7 +30,7 @@ const NavbarWeather = () => {
       </li>
       <li>
         <Link
-          to="/"
+          to="daily"
           className={`p-3 hover:border-orange-500 ${
             pathname === "/weather/daily"
               ? "border-orange-500"
