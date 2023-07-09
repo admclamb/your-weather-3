@@ -1,15 +1,13 @@
 import { useEffect } from "react";
 
-export const useOutsideAlerter = <T,>(
-  ref: React.RefObject<T>,
+export const useOutsideAlerter = (
+  ref: React.RefObject<HTMLElement>,
   executable: (arg0: void) => void,
   allowedTargets: string[]
 ) => {
   useEffect(() => {
-    const handleOutsideClick = (
-      event: (this: Document, event: MouseEvent<HTMLElement>) => any
-    ) => {
-      const target = event.target as HTMLButtonElement;
+    const handleOutsideClick = (event: TouchEvent | MouseEvent) => {
+      const target = (event.target as HTMLElement) ?? "";
       if (
         ref.current &&
         !ref.current.contains(target) &&
