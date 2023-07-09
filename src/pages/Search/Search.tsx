@@ -54,7 +54,7 @@ const Search = () => {
           Showing <b>{results.length && results.length}</b> locations for{" "}
           <b>"{state.search}"</b>
         </p>
-        {!results.length && (
+        {!results.length && !isLoading && (
           <p className="text-sm mt-1 text-neutral-600">
             To better refine your search results, use commas inbetween city and
             state, and fully spell out states.
