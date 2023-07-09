@@ -3,6 +3,7 @@ import FormInput from "../Form/FormInput/FormInput";
 import Button from "../Button/Button";
 import { useNavigate } from "react-router-dom";
 import SearchbarDropdown from "./SearchbarDropdown/SearchbarDropdown";
+import OutsideAlerter from "../../utils/OutsideAlerter";
 
 type Props = {
   className?: string;
@@ -18,8 +19,12 @@ const Searchbar = ({ className = "" }: Props) => {
     setInput("");
     navigate("search-locations", { state: { search: input } });
   };
+
+  const closeDropdown = () => {
+    setIsDropdownOpen(false);
+  };
   return (
-    <div className="relative">
+    <OutsideAlerter className="relative" executable={closeDropdown}>
       <form
         onSubmit={submitSearch}
         className={`relative text-black${className && " " + className}`}
@@ -44,7 +49,7 @@ const Searchbar = ({ className = "" }: Props) => {
         isDropdownOpen={isDropdownOpen}
         setIsDropdownOpen={setIsDropdownOpen}
       />
-    </div>
+    </OutsideAlerter>
   );
 };
 

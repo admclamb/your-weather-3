@@ -14,7 +14,7 @@ const Home = () => {
     }
   }, []);
 
-  console.log(recentSearches);
+  console.log("RECENT: ", recentSearches);
 
   return (
     <>
@@ -25,10 +25,12 @@ const Home = () => {
             <Searchbar className="drop-shadow" />
           </div>
 
-          <div>
-            <p>Recent Locations</p>
-            <ul></ul>
-          </div>
+          {recentSearches.length ? (
+            <div>
+              <p>Recent Locations</p>
+              <ul></ul>
+            </div>
+          ) : null}
         </Container>
       </section>
     </>

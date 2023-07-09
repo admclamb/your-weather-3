@@ -38,6 +38,8 @@ const Search = () => {
     })();
   }, [state.search]);
 
+  useEffect(() => {}, []);
+
   const selectLocation = (event: React.MouseEvent<HTMLButtonElement>) => {
     const target = event.target as HTMLButtonElement;
     const index = parseInt(target.id);
