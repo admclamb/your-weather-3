@@ -26,7 +26,7 @@ const Search = () => {
         setError(null);
         setResults([]);
         const response = await OpenWeather.getLocationByName(state.search);
-        if (response.data) {
+        if (response && response.data) {
           setResults(response.data);
         }
       } catch (err: any) {
