@@ -7,6 +7,8 @@ import Container from "../../components/Container/Container";
 import ErroHandler from "../../errors/ErrorHandler";
 import ErrorAlertFixed from "../../errors/ErrorAlertFixed/ErrorAlertFixed";
 import { useAppDispatch } from "../../hooks/hooks";
+import { AxiosError } from "axios";
+import OpenWeatherError from "../../ts/types/OpenWeatherError";
 const Search = () => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [results, setResults] = useState<Location[]>([]);
@@ -29,8 +31,9 @@ const Search = () => {
         if (response && response.data) {
           setResults(response.data);
         }
-      } catch (err: any) {
-        setError(ErroHandler.handleApiResponse(err));
+      } catch (err) {
+        const axiosError = error as AxiosError<OpenWeatherError>;
+        setError(ErroHandler.handleApiResponse(axiosError));
       } finally {
         setIsLoading(false);
       }
