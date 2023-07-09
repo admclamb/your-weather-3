@@ -6,6 +6,8 @@ type Props = {
   className?: string;
   placeholder?: string;
   padding?: string;
+  onFocus?: (event: React.FocusEvent<HTMLInputElement>) => void;
+  onBlur?: (event: React.FocusEvent<HTMLInputElement>) => void;
 };
 
 const FormInput = ({
@@ -14,6 +16,8 @@ const FormInput = ({
   className,
   placeholder,
   padding = "p-3",
+  onFocus,
+  onBlur,
 }: Props) => {
   const changeInput = ({
     target: { value },
@@ -28,6 +32,8 @@ const FormInput = ({
         className && " " + className
       }`}
       placeholder={placeholder}
+      onFocus={onFocus}
+      onBlur={onBlur}
     />
   );
 };
