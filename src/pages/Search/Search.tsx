@@ -30,7 +30,6 @@ const Search = () => {
           setResults(response.data);
         }
       } catch (err: any) {
-        console.error(err);
         setError(ErroHandler.handleApiResponse(err));
       } finally {
         setIsLoading(false);
@@ -38,15 +37,12 @@ const Search = () => {
     })();
   }, [state.search]);
 
-  useEffect(() => {}, []);
-
   const selectLocation = (event: React.MouseEvent<HTMLButtonElement>) => {
     const target = event.target as HTMLButtonElement;
     const index = parseInt(target.id);
     dispatch(addLocation(results[index]));
     navigate("/weather");
   };
-  console.log(results);
   return (
     <Container className="mx-auto flex flex-col gap-0">
       <ErrorAlertFixed error={error} setError={setError} />
@@ -78,7 +74,7 @@ const Search = () => {
               <li key={index}>
                 <button
                   className="p-3 border-b w-full text-left hover:bg-neutral-100 duration-200 ease-out"
-                  data-index={index}
+                  id={`${index}`}
                   onClick={selectLocation}
                 >
                   {`${result.name},${result.state && ` ${result.state},`} ${

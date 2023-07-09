@@ -3,7 +3,6 @@ import { useRoutePath } from "../../../hooks/useRoutePath";
 
 const NavbarWeather = () => {
   const [pathname] = useRoutePath();
-  console.log("PATH: ", pathname);
   return (
     <ul className="flex gap-3 border-b overflow-x-auto">
       <li>

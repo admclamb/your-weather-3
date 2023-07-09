@@ -7,7 +7,6 @@ type Props = {
 
 const SearchbarDropdown = ({ isDropdownOpen, setIsDropdownOpen }: Props) => {
   const useCurrentLocation = () => {
-    console.log("CLICKED");
     setIsDropdownOpen(false);
   };
   return (
