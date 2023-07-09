@@ -26,7 +26,7 @@ export const getWeather = async (
   units: string
 ): Promise<AxiosResponse<Weather> | void> => {
   return await Api.get<Weather>(
-    `https://api.openweathermap.org/data/3.0/onecall?lat=${lat}&lon=${lon}&units=${units}&appid=${API_KEY}`
+    `/data/3.0/onecall?lat=${lat}&lon=${lon}&units=${units}&appid=${API_KEY}`
   );
 };
 
