@@ -58,7 +58,7 @@ const Button = ({
     } else {
       return (
         <button
-          className={`${parentClass} ${padding} outline-2 outline-offset-2 outline-orange-600`}
+          className={`${parentClass} ${padding} focus:outline outline-2 outline-offset-2 outline-orange-600`}
           role={role}
           id={id}
           type={type}

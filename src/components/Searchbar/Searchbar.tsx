@@ -16,8 +16,10 @@ const Searchbar = ({ className = "" }: Props) => {
 
   const submitSearch = async (event: React.FormEvent) => {
     event.preventDefault();
-    setInput("");
-    navigate("search-locations", { state: { search: input } });
+    if (input.length) {
+      setInput("");
+      navigate("search-locations", { state: { search: input } });
+    }
   };
 
   const closeDropdown = () => {
@@ -43,6 +45,7 @@ const Searchbar = ({ className = "" }: Props) => {
           placeholder="Search..."
           padding="p-2.5 pl-10"
           onFocus={() => setIsDropdownOpen(true)}
+          hideOutline={true}
         />
       </form>
       <SearchbarDropdown

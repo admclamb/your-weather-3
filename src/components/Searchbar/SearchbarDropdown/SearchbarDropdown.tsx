@@ -15,7 +15,7 @@ const SearchbarDropdown = ({ isDropdownOpen, setIsDropdownOpen }: Props) => {
       <ul className="absolute top-full w-full border-t-orange-600 border-t-2">
         <li>
           <button
-            className="text-neutral-700 p-3 bg-white w-full text-left rounded-b"
+            className="text-neutral-700 p-3 bg-white w-full text-left rounded-b focus:outline outline-2 outline-offset-2 outline-orange-600"
             onFocus={() => setIsDropdownOpen(true)}
             onClick={useCurrentLocation}
           >
