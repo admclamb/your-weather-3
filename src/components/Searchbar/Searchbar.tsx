@@ -29,7 +29,7 @@ const Searchbar = ({ className = "" }: Props) => {
           setInput={setInput}
           className={`w-full ${isDropdownOpen ? "rounded-t" : "rounded"}`}
           placeholder="Search..."
-          padding="p-3 pr-12"
+          padding="p-2.5 pr-12"
           onFocus={() => setIsDropdownOpen(true)}
           onBlur={() => setIsDropdownOpen(false)}
         />

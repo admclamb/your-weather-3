@@ -18,9 +18,10 @@ const Home = () => {
 
   return (
     <>
-      <section className="h-[40vh] bg-neutral-500 py-12 text-white">
+      <section className="h-[40vh] bg-black px-3 py-12 text-white">
         <Container className="mx-auto flex flex-col gap-3">
-          <div className="max-w-[50%]">
+          <div className="w-full md:max-w-[50%]">
+            <h3 className="text-xl font-semibold mb-2">Search Your City</h3>
             <Searchbar className="drop-shadow" />
           </div>
 
