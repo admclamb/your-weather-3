@@ -19,26 +19,26 @@ const Searchbar = ({ className = "" }: Props) => {
     navigate("search-locations", { state: { search: input } });
   };
   return (
-    <div>
+    <div className="relative">
       <form
         onSubmit={submitSearch}
         className={`relative text-black${className && " " + className}`}
       >
-        <FormInput
-          input={input}
-          setInput={setInput}
-          className={`w-full ${isDropdownOpen ? "rounded-t" : "rounded"}`}
-          placeholder="Search..."
-          padding="p-2.5 pr-12"
-          onFocus={() => setIsDropdownOpen(true)}
-          onBlur={() => setIsDropdownOpen(false)}
-        />
         <Button
           type="submit"
-          className="absolute right-0 top-1/2 -translate-y-1/2"
+          className="absolute left-0 top-1/2 -translate-y-1/2"
         >
           <i className="fa-solid fa-magnifying-glass"></i>
         </Button>
+        <FormInput
+          input={input}
+          setInput={setInput}
+          className="w-full"
+          borderRadius={isDropdownOpen ? "rounded-t" : "rounded"}
+          placeholder="Search..."
+          padding="p-2.5 pl-10"
+          onFocus={() => setIsDropdownOpen(true)}
+        />
       </form>
       <SearchbarDropdown
         isDropdownOpen={isDropdownOpen}

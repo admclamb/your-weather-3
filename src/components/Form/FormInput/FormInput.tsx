@@ -6,6 +6,7 @@ type Props = {
   className?: string;
   placeholder?: string;
   padding?: string;
+  borderRadius?: string;
   onFocus?: (event: React.FocusEvent<HTMLInputElement>) => void;
   onBlur?: (event: React.FocusEvent<HTMLInputElement>) => void;
 };
@@ -18,6 +19,7 @@ const FormInput = ({
   padding = "p-3",
   onFocus,
   onBlur,
+  borderRadius = "rounded",
 }: Props) => {
   const changeInput = ({
     target: { value },
@@ -28,9 +30,9 @@ const FormInput = ({
     <input
       value={input}
       onChange={changeInput}
-      className={`${padding} outline-2 outline-offset-2 outline-orange-600 rounded${
-        className && " " + className
-      }`}
+      className={`${
+        className && className + " "
+      }${padding} outline-2 outline-offset-2 outline-orange-600 ${borderRadius}`}
       placeholder={placeholder}
       onFocus={onFocus}
       onBlur={onBlur}
