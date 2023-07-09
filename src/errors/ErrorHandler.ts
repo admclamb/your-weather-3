@@ -13,6 +13,8 @@ const handleApiResponse = (error: AxiosError<OpenWeatherError>) => {
 };
 
 const handle = (error: unknown): ErrorEvent => {
+  if (error instanceof GeolocationPositionError)
+    return new Error(error.message);
   if (error instanceof ErrorEvent) return error;
   let stringified;
   try {
