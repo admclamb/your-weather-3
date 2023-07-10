@@ -11,7 +11,7 @@ const Layout = ({ children }: Props) => {
       <header>
         <Navbar />
       </header>
-      <main>{children}</main>
+      <main className="bg-neutral-100 grow">{children}</main>
     </>
   );
 };
