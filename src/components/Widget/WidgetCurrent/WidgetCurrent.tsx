@@ -21,7 +21,7 @@ const WidgetCurrent = () => {
               <TempDeluxe weather={weather} showIcon />
             </div>
           </div>
-          <ul className="flex-1">
+          <ul className="flex-1 hidden lg:block">
             <li className="w-full border-b py-2 flex justify-between items-center">
               <span>Wind Gust</span>
               <span className="font-semibold">
