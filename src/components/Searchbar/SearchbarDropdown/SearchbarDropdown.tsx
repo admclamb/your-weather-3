@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { createPortal } from "react-dom";
 import Browser from "../../../api/Browser";
 import ErroHandler from "../../../errors/ErrorHandler";
 import ErrorAlertFixed from "../../../errors/ErrorAlertFixed/ErrorAlertFixed";
@@ -46,7 +47,14 @@ const SearchbarDropdown = ({ isDropdownOpen, setIsDropdownOpen }: Props) => {
   return (
     isDropdownOpen && (
       <>
-        <ErrorAlertFixed error={error} setError={setError} showClose={true} />
+        {createPortal(
+          <ErrorAlertFixed
+            error={error}
+            setError={setError}
+            showClose={true}
+          />,
+          document.body
+        )}
         <ul className="absolute top-full w-full border-t-orange-600 border-t-2">
           <li>
             <button
