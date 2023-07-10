@@ -1,7 +1,7 @@
 import { useAppSelector } from "../../../hooks/hooks";
-import FormatTemp from "../../../utils/formatTemp";
 import { toInitials } from "../../../utils/toInitials";
 import Container from "../../Container/Container";
+import Temp from "../../Temp/Temp";
 
 const NavbarSub = () => {
   const { location } = useAppSelector((state) => state.location);
@@ -13,7 +13,7 @@ const NavbarSub = () => {
         <p className="text-sm">
           {location.name}, {location?.state ? toInitials(location.state) : ""}{" "}
           {weather?.current?.temp ? (
-            <FormatTemp
+            <Temp
               temp={weather?.current?.temp}
               fontSize="text-sm"
               unitSize="text-sm"

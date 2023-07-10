@@ -72,7 +72,7 @@ video {
 
 .weather-grid {
   display: grid;
-  grid-template-columns: 3fr 1fr;
+  grid-template-columns: 3fr 2fr;
 }
 
 @media screen and (min-width: 500px) {

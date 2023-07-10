@@ -1,4 +1,4 @@
-import { useAppSelector } from "../hooks/hooks";
+import { useAppSelector } from "../../hooks/hooks";
 
 type Props = {
   temp: number;
@@ -7,7 +7,7 @@ type Props = {
   fixTemp?: boolean;
 };
 
-export const FormatTemp = ({
+const Temp = ({
   temp,
   fontSize = "text-lg",
   unitSize = "text-lg",
@@ -22,4 +22,4 @@ export const FormatTemp = ({
   );
 };
 
-export default FormatTemp;
+export default Temp;

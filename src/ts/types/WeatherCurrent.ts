@@ -10,7 +10,12 @@ export type WeatherCurrent = {
   temp: number;
   uvi: number;
   visibility: number;
-  weather: {}[];
+  weather: {
+    id: number;
+    icon: string;
+    main: string;
+    description: string;
+  }[];
   wind_deg: number;
   wind_speed: number;
 };
