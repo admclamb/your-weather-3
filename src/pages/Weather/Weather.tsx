@@ -16,7 +16,7 @@ const Weather = () => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [error, setError] = useState<{ message: string } | null>(null);
   const dispatch = useAppDispatch();
-  console.log("LOCATION: ", location);
+
   useEffect(() => {
     (async () => {
       try {
@@ -43,9 +43,8 @@ const Weather = () => {
         }
       }
     })();
-  }, [location]);
-  console.log(isLoading);
-  console.log("WEATHER: ", weather);
+  }, [location.name, units]);
+
   return (
     <>
       <Container className="mx-auto">
