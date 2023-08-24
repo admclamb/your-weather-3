@@ -55,7 +55,7 @@ const getWeather = async (
 const getAirPollution = async (
   lat: number,
   lon: number
-): Promise<AxiosResponse<AirPollution | null>> => {
+): Promise<AxiosResponse<any | null>> => {
   return await Api.get<AirPollution>("data/2.5/air_pollution", {
     params: {
       lat,

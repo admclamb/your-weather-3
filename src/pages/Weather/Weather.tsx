@@ -10,13 +10,12 @@ import { AxiosError } from "axios";
 import OpenWeatherError from "../../ts/types/OpenWeatherError";
 
 const Weather = () => {
-  const { weather } = useAppSelector((state) => state.weather);
   const { location } = useAppSelector((state) => state.location);
   const { units } = useAppSelector((state) => state.units);
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [error, setError] = useState<{ message: string } | null>(null);
   const dispatch = useAppDispatch();
-
+  console.log(isLoading);
   useEffect(() => {
     (async () => {
       try {

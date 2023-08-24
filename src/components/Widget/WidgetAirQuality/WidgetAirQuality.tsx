@@ -14,6 +14,7 @@ const WidgetAirQuality = () => {
   const [error, setError] = useState<{ message: string } | null>(null);
   const [isInfoOpen, setIsInfoOpen] = useState<boolean>(false);
 
+  console.log(isLoading);
   const { location } = useAppSelector((state) => state.location);
 
   const qualities: any = {
@@ -25,7 +26,7 @@ const WidgetAirQuality = () => {
   let quality: {
     description: string;
     color: string;
-  } | null;
+  } | null = null;
   if (airPollution) {
     quality = qualities[airPollution?.main?.aqi];
   }
@@ -62,6 +63,8 @@ const WidgetAirQuality = () => {
       }
     })();
   }, [location.name]);
+
+  console.log(isLoading);
 
   return airPollution ? (
     <Card>
